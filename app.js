@@ -197,7 +197,12 @@ const app = {
             //
         playlist.onclick = function(e) {
             if (e.target.closest('.song:not(.active)') && !e.target.closest('.option')) {
-
+                // e.target.closest('.song:not(.active)').getAttribute('data-index') = e.target.closest('.song:not(.active)').dataset.index;
+                _this.currentIndex = Number(e.target.closest('.song:not(.active)').dataset.index);
+                _this.loadCurrentSong();
+                _this.scrollTopActive();
+                _this.render();
+                audio.play();
             }
         }
     },
